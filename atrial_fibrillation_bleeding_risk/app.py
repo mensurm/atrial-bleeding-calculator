@@ -23,6 +23,14 @@ def has_bled_index():
 def atria():
     return render_template('atria/index.html')
 
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template('about.html')
+
+@app.route('/contact', methods=['GET'])
+def contact():
+    return render_template('contact.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
