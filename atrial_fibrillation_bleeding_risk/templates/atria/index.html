@@ -1,0 +1,205 @@
+{% extends "index.html" %}
+{% block body %}
+
+<div class="col-12">
+    <div class="card border-info">
+        <div class="card-header card-head-inverse bg-info">
+            <h4 class="card-title text-white">ATRIA Bleeding Risc Score</h4>
+
+        </div>
+        <div class="card-content collapse show">
+            <div class="card-body">
+                <form action="#">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-lg-5">
+                                    <h5>Anemia</h5>
+                                    <h6>
+                                        <small>Hemoglobin < 13 g/dL (Male) < 12 g/dL (Female)</small>
+                                    </h6>
+                                </label>
+                                <div class="col-lg-7">
+                                    <input id="anemiaToggle" type="checkbox" data-toggle="toggle" data-on="Yes +3" data-off="No"
+                                           data-onstyle="danger">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-lg-5">
+                                    <h4>Severe renal disease</h4>
+                                    <h5>
+                                        <small>Glomerular filtration rate <30 mL/min or dialysis-dependent</small>
+                                    </h5>
+                                </label>
+                                <div class="col-lg-7">
+                                    <input id="renalDiseaseToggle" type="checkbox" data-toggle="toggle" data-on="Yes +3" data-off="No"
+                                           data-onstyle="danger">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-lg-5">
+                                    <h5>Age ≥ 75 years</h5>
+                                    <h6>
+                                        <small>&nbsp;</small>
+                                    </h6>
+                                </label>
+                                <div class="col-lg-7">
+                                    <input id="ageToggle" type="checkbox" data-toggle="toggle" data-on="Yes +2" data-off="No"
+                                           data-onstyle="danger">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-lg-5">
+                                    <h5>Any Prior Hemorrhage Diagnosis</h5>
+                                    <h6>
+                                        <small>Ex: GI bleed, intracranial hemorrhage</small>
+                                    </h6>
+                                </label>
+                                <div class="col-lg-7">
+                                    <input id="priorHemorageToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
+                                           data-onstyle="danger">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-lg-5">
+                                    <h5>Hypertension History</h5>
+                                    <h6>
+                                        <small></small>
+                                    </h6>
+                                </label>
+                                <div class="col-lg-7">
+                                    <input id="hypertensionHistoryToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
+                                           data-onstyle="danger">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!--<div class="form-actions">-->
+                    <!--<div class="text-right">-->
+                    <!--<button type="submit" class="btn btn-primary">Submit <i class="ft-thumbs-up position-right"></i></button>-->
+                    <!--<button type="reset" class="btn btn-warning">Reset <i class="ft-refresh-cw position-right"></i></button>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 mt-4">
+    <div class="card box-shadow-0">
+        <div id="riskResultCard" class="card-header card-head-inverse bg-success">
+            <h4 id="riskResultTitle" class="card-title text-white">LOW RISK</h4>
+            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+        </div>
+        <div class="card-content collapse show">
+            <div class="card-body">
+                <p id="riskResultDescription" class="card-text">Low Risk (<4 Points), 0.76% Annual Risk of Hemorrhage.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  let risk = 0;
+  let riskThreshold = 4;
+  let ageRisk = 2;
+  let anemiaRisk = 3;
+  let renalDiseaseRisk = 3;
+  let priorHemorageRisk = 1
+  let hypertensionHistoryRisk = 1;
+
+  let lowRiskDescription = "Low Risk (<4 Points), 0.76% Annual Risk of Hemorrhage."
+  let intermediateRiskDescription = "Intermediate Risk (4 Points), 2.6% Annual Risk of Hemorrhage."
+  let highRiskDescription = "High Risk (>4 Points), 5.8% Annual Risk of Hemorrhage";
+
+$(function() {
+    $('#ageToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, ageRisk);
+    });
+
+
+    $('#anemiaToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, anemiaRisk);
+    });
+
+
+    $('#renalDiseaseToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, renalDiseaseRisk);
+    });
+
+
+    $('#priorHemorageToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, priorHemorageRisk);
+    });
+
+    $('#hypertensionHistoryToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, hypertensionHistoryRisk);
+    });
+
+    function update(checked, value) {
+        if(checked) {
+            increaseRisk(value);
+        } else {
+            decreaseRisk(value);
+        }
+        updateLabel();
+    }
+
+    function increaseRisk(value) {
+        risk += value;
+    }
+
+    function decreaseRisk(value) {
+        risk -= value;
+    }
+
+    function updateLabel() {
+        if (risk < riskThreshold) {
+            setLowRiskLabel();
+        } else if (risk === riskThreshold) {
+            setIntermediateRiskLabel()
+         } else if (risk > riskThreshold) {
+            setHighRiskLabel();
+         }
+    }
+
+    function setLowRiskLabel() {
+        $('#riskResultCard').attr("class","card-header card-head-inverse bg-success");
+        $('#riskResultTitle').text("LOW RISK");
+        $('#riskResultDescription').text(lowRiskDescription);
+    }
+
+    function setIntermediateRiskLabel() {
+        $('#riskResultCard').attr("class","card-header card-head-inverse bg-warning");
+        $('#riskResultTitle').text("INTERMEDIATE RISK");
+        $('#riskResultDescription').text(intermediateRiskDescription);
+    }
+
+    function setHighRiskLabel() {
+        $('#riskResultCard').attr("class","card-header card-head-inverse bg-danger");
+        $('#riskResultTitle').text("HIGH RISK");
+        $('#riskResultDescription').text(highRiskDescription);
+    }
+});
+
+</script>
+
+
+{% endblock %}

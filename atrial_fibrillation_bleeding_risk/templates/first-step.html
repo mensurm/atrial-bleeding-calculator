@@ -1,0 +1,115 @@
+{% extends "index.html" %}
+{% block body %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Calculator</h1>
+  <p class="lead">Please choose the appropriate option</p>
+</div>
+<div class="container-fluid">
+
+
+      <div class="row match-height">
+
+      <div class="col-xl-3 col-md-6 col-sm-12">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">HAS-BLED</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Hypertension</li>
+          <li>Abnormal renal/liver function</li>
+          <li>Stroke</li>
+          <li>Bleeding history or predisposition</li>
+          <li>Labile INR</li>
+          <li>Elderly (&gt;65 years)</li>
+          <li>Drugs/alcohol concomitantly</li>
+        </ul>
+
+        <button type="button" class="btn btn-lg btn-block btn-primary">Select</button>
+      </div>
+    </div>
+          </div>
+
+      <div class="col-xl-3 col-md-6 col-sm-12">
+
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">ORBIT</h4>
+      </div>
+      <div class="d-flex flex-column card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Older age</li>
+          <li>Reduced hemoglobin/hematocrit/anemia</li>
+          <li>Bleeding history</li>
+          <li>Insufficient kidney function</li>
+          <li>Treatment with anti-platelets</li>
+        </ul>
+        <button type="button" class="mt-auto btn btn-lg btn-block btn-primary">Select</button>
+      </div>
+    </div>
+      </div>
+
+
+            <div class="col-xl-3 col-md-6 col-sm-12">
+
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">ABC</h4>
+      </div>
+      <div class="d-flex flex-column card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Age</li>
+          <li>Biomarkers</li>
+          <li>Clinical history</li>
+        </ul>
+
+        <button type="button" class="mt-auto btn btn-lg btn-block btn-primary">Select</button>
+      </div>
+    </div>
+            </div>
+          </div>
+
+
+  <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+      <div class="col-12 col-md">
+        <img class="mb-2" src="/docs/4.2/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+        <small class="d-block mb-3 text-muted">© 2017-2018</small>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Cool stuff</a></li>
+          <li><a class="text-muted" href="#">Random feature</a></li>
+          <li><a class="text-muted" href="#">Team feature</a></li>
+          <li><a class="text-muted" href="#">Stuff for developers</a></li>
+          <li><a class="text-muted" href="#">Another one</a></li>
+          <li><a class="text-muted" href="#">Last time</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Resource</a></li>
+          <li><a class="text-muted" href="#">Resource name</a></li>
+          <li><a class="text-muted" href="#">Another resource</a></li>
+          <li><a class="text-muted" href="#">Final resource</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Team</a></li>
+          <li><a class="text-muted" href="#">Locations</a></li>
+          <li><a class="text-muted" href="#">Privacy</a></li>
+          <li><a class="text-muted" href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script type=text/javascript src="{{url_for('static', filename='js/first_step.js') }}"></script>
+
+{% endblock %}
