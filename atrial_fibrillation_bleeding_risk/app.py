@@ -23,6 +23,10 @@ def has_bled_index():
 def atria():
     return render_template('atria/index.html')
 
+@app.route('/orbit', methods=['GET'])
+def orbit():
+    return render_template('orbit/index.html')
+
 @app.route('/about', methods=['GET'])
 def about():
     return render_template('about.html')

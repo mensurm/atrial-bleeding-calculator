@@ -1,0 +1,199 @@
+{% extends "index.html" %}
+{% block body %}
+
+<div class="col-12">
+    <div class="card border-info">
+        <div class="card-header card-head-inverse bg-info">
+            <h4 class="card-title text-white">ORBIT Bleeding Risc Score</h4>
+
+        </div>
+        <div class="card-content collapse show">
+            <div class="card-body">
+                <form action="#">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-lg-5">
+                                    <h5>Older age</h5>
+                                    <h6>
+                                        <small>Older then 75 years</small>
+                                    </h6>
+                                </label>
+                                <div class="col-lg-7">
+                                    <input id="olderAgeToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
+                                           data-onstyle="danger">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-lg-5">
+                                    <h4>Reduced haemoglobin</h4>
+                                    <h5>
+                                        <small>(&lt;13 mg/dL in men and &lt;12 mg/dL in women),
+haematocrit (&lt;40% in men and &lt;36% in women) or history of anaemia</small>
+                                    </h5>
+                                </label>
+                                <div class="col-lg-7">
+                                    <input id="reducedHaemoglobinToggle" type="checkbox" data-toggle="toggle" data-on="Yes +2" data-off="No"
+                                           data-onstyle="danger">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-lg-5">
+                                    <h5>Bleeding history</h5>
+                                    <h6>
+                                        <small>&nbsp;</small>
+                                    </h6>
+                                </label>
+                                <div class="col-lg-7">
+                                    <input id="bleedingHistoryToggle" type="checkbox" data-toggle="toggle" data-on="Yes +2" data-off="No"
+                                           data-onstyle="danger">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-lg-5">
+                                    <h5>Insufficient kidney function</h5>
+                                    <h6>
+                                        <small>eGFR &lt; 60 mg/dL/1.73 m2</small>
+                                    </h6>
+                                </label>
+                                <div class="col-lg-7">
+                                    <input id="insufficientKidneyFunctionToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
+                                           data-onstyle="danger">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-lg-5">
+                                    <h5>Treatment with an antiplatelet agent</h5>
+                                    <h6>
+                                        <small></small>
+                                    </h6>
+                                </label>
+                                <div class="col-lg-7">
+                                    <input id="antiplateletAgentToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
+                                           data-onstyle="danger">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 mt-4">
+    <div class="card box-shadow-0">
+        <div id="riskResultCard" class="card-header card-head-inverse bg-success">
+            <h4 id="riskResultTitle" class="card-title text-white">LOW RISK</h4>
+        </div>
+        <div class="card-content collapse show">
+            <div class="card-body">
+                <p id="riskResultDescription" class="card-text">Low Risk (<3 Points)</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  let risk = 0;
+  let riskThreshold = 3;
+  let olderAgeRisk = 1;
+  let reducedHaemoglobinRisk = 2;
+  let bleedingHistoryRisk = 2;
+  let insufficientKidneyFunctionRisk = 1;
+  let antiplateletAgentRisk = 1;
+
+  let lowRiskDescription = "Low Risk (<3 Points)"
+  let intermediateRiskDescription = "Intermediate Risk (3 Points)"
+  let highRiskDescription = "High Risk (>3 Points)";
+
+  $(function() {
+    $('#olderAgeToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, olderAgeRisk);
+    });
+
+
+    $('#reducedHaemoglobinToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, reducedHaemoglobinRisk);
+    });
+
+
+    $('#bleedingHistoryToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, bleedingHistoryRisk);
+    });
+
+
+    $('#insufficientKidneyFunctionToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, insufficientKidneyFunctionRisk);
+    });
+
+    $('#antiplateletAgentToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, antiplateletAgentRisk);
+    });
+
+    function update(checked, value) {
+        if(checked) {
+            increaseRisk(value);
+        } else {
+            decreaseRisk(value);
+        }
+        updateLabel();
+    }
+
+    function increaseRisk(value) {
+        risk += value;
+    }
+
+    function decreaseRisk(value) {
+        risk -= value;
+    }
+
+    function updateLabel() {
+        if (risk < riskThreshold) {
+            setLowRiskLabel();
+        } else if (risk === riskThreshold) {
+            setIntermediateRiskLabel()
+         } else if (risk > riskThreshold) {
+            setHighRiskLabel();
+         }
+    }
+
+    function setLowRiskLabel() {
+        $('#riskResultCard').attr("class","card-header card-head-inverse bg-success");
+        $('#riskResultTitle').text("LOW RISK");
+         $('#riskResultDescription').text(lowRiskDescription);
+    }
+
+    function setIntermediateRiskLabel() {
+        $('#riskResultCard').attr("class","card-header card-head-inverse bg-warning");
+        $('#riskResultTitle').text("INTERMEDIATE RISK");
+        $('#riskResultDescription').text(intermediateRiskDescription);
+    }
+
+    function setHighRiskLabel() {
+        $('#riskResultCard').attr("class","card-header card-head-inverse bg-danger");
+        $('#riskResultTitle').text("HIGH RISK");
+        $('#riskResultDescription').text(highRiskDescription);
+    }
+});
+
+</script>
+{% endblock %}
+
