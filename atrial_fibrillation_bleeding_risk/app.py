@@ -14,6 +14,7 @@ def index():
 def first_step():
     return render_template('home.html')
 
+
 @app.route('/has-bled', methods=['GET'])
 def has_bled_index():
     return render_template('has-bled/index.html')
@@ -23,9 +24,16 @@ def has_bled_index():
 def atria():
     return render_template('atria/index.html')
 
+
 @app.route('/orbit', methods=['GET'])
 def orbit():
     return render_template('orbit/index.html')
+
+
+@app.route('/hemorr2hages', methods=['GET'])
+def hemorrhages():
+    return render_template('hemorrhages/index.html')
+
 
 @app.route('/about', methods=['GET'])
 def about():

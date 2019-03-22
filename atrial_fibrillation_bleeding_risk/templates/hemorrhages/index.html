@@ -4,7 +4,7 @@
 <div class="col-12">
     <div class="card border-info">
         <div class="card-header card-head-inverse bg-info">
-            <h4 class="card-title text-white">HAS-BLED Bleeding Risc Score</h4>
+            <h4 class="card-title text-white">HEMORR₂HAGES Bleeding Risc Score</h4>
 
         </div>
         <div class="card-content collapse show">
@@ -14,44 +14,13 @@
                         <div class="form-group">
                             <div class="row">
                                 <label class="col-lg-5">
-                                    <h5>Hypertension</h5>
-                                    <h6>
-                                        <small>Uncontrolled, >160 mmHg systolic</small>
-                                    </h6>
-                                </label>
-                                <div class="col-lg-7">
-                                    <input id="hypertensionToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1"
-                                           data-off="No"
-                                           data-onstyle="danger">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <label class="col-lg-5">
-                                    <h4>Renal disease</h4>
-                                    <h5>
-                                        <small>Dialysis, transplant, Cr >2.26 mg/dL or >200 µmol/L</small>
-                                    </h5>
-                                </label>
-                                <div class="col-lg-7">
-                                    <input id="renalDiseaseToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1"
-                                           data-off="No"
-                                           data-onstyle="danger">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <label class="col-lg-5">
-                                    <h5>Bleeding history</h5>
+                                    <h5>Hepatic or Renal Disease</h5>
                                     <h6>
                                         <small>&nbsp;</small>
                                     </h6>
                                 </label>
                                 <div class="col-lg-7">
-                                    <input id="bleedingHistoryToggle" type="checkbox" data-toggle="toggle"
-                                           data-on="Yes +1" data-off="No"
+                                    <input id="hepaticOrRenalDiseaseToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
                                            data-onstyle="danger">
                                 </div>
                             </div>
@@ -59,46 +28,41 @@
                         <div class="form-group">
                             <div class="row">
                                 <label class="col-lg-5">
-                                    <h5>Liver disease</h5>
+                                    <h5>Ethanol (Alcohol) Abuse</h5>
                                     <h6>
-                                        <small>Cirrhosis or bilirubin >2x normal with AST/ALT/AP >3x normal</small>
+                                        <small>&nbsp;</small>
                                     </h6>
                                 </label>
                                 <div class="col-lg-7">
-                                    <input id="liverDiseaseToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1"
-                                           data-off="No"
+                                    <input id="ethanolAbuseToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
                                            data-onstyle="danger">
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div class="row">
                                 <label class="col-lg-5">
-                                    <h5>Stroke history</h5>
+                                    <h5>Malignancy History</h5>
                                     <h6>
-                                        <small></small>
+                                        <small>&nbsp;</small>
                                     </h6>
                                 </label>
                                 <div class="col-lg-7">
-                                    <input id="strokeHistoryToggle" type="checkbox" data-toggle="toggle"
-                                           data-on="Yes +1" data-off="No"
+                                    <input id="malignancyHistoryToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
                                            data-onstyle="danger">
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div class="row">
                                 <label class="col-lg-5">
-                                    <h5>Prior major bleeding or predisposition to bleeding</h5>
+                                    <h5>Older (Age > 75)</h5>
                                     <h6>
-                                        <small></small>
+                                        <small>&nbsp;</small>
                                     </h6>
                                 </label>
                                 <div class="col-lg-7">
-                                    <input id="priorMajorBleedingToggle" type="checkbox" data-toggle="toggle"
-                                           data-on="Yes +1" data-off="No"
+                                    <input id="olderAgeToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
                                            data-onstyle="danger">
                                 </div>
                             </div>
@@ -107,14 +71,13 @@
                         <div class="form-group">
                             <div class="row">
                                 <label class="col-lg-5">
-                                    <h5>Labile INR</h5>
+                                    <h5>Reduced Platelet Count or Function</h5>
                                     <h6>
-                                        <small>Unstable/high INRs, time in therapeutic range <60%</small>
+                                        <small>Includes aspirin use, any thrombocytopenia or blood dyscrasia, like hemophilia</small>
                                     </h6>
                                 </label>
                                 <div class="col-lg-7">
-                                    <input id="labileInrToggle" type="checkbox" data-toggle="toggle"
-                                           data-on="Yes +1" data-off="No"
+                                    <input id="reducedPlateletCountToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
                                            data-onstyle="danger">
                                 </div>
                             </div>
@@ -123,14 +86,13 @@
                         <div class="form-group">
                             <div class="row">
                                 <label class="col-lg-5">
-                                    <h5>Age > 65 years</h5>
+                                    <h5>Rebleeding Risk</h5>
                                     <h6>
-                                        <small>Unstable/high INRs, time in therapeutic range <60%</small>
+                                        <small>History of past bleeding</small>
                                     </h6>
                                 </label>
                                 <div class="col-lg-7">
-                                    <input id="ageToggle" type="checkbox" data-toggle="toggle"
-                                           data-on="Yes +1" data-off="No"
+                                    <input id="rebleedingRiskToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
                                            data-onstyle="danger">
                                 </div>
                             </div>
@@ -139,14 +101,13 @@
                         <div class="form-group">
                             <div class="row">
                                 <label class="col-lg-5">
-                                    <h5>Medication usage predisposing to bleeding</h5>
+                                    <h5>Hypertension (Uncontrolled)</h5>
                                     <h6>
-                                        <small>Aspirin, clopidogrel, NSAIDs</small>
+                                        <small>&nbsp;</small>
                                     </h6>
                                 </label>
                                 <div class="col-lg-7">
-                                    <input id="medicationUsageToggle" type="checkbox" data-toggle="toggle"
-                                           data-on="Yes +1" data-off="No"
+                                    <input id="hypertensionToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
                                            data-onstyle="danger">
                                 </div>
                             </div>
@@ -155,14 +116,58 @@
                         <div class="form-group">
                             <div class="row">
                                 <label class="col-lg-5">
-                                    <h5>Alcohol use</h5>
+                                    <h5>Anemia</h5>
                                     <h6>
-                                        <small>≥8 drinks/week</small>
+                                        <small>Hgb <13 g/dL for Men; Hgb <12 g/dL for Women</small>
                                     </h6>
                                 </label>
                                 <div class="col-lg-7">
-                                    <input id="alcoholUseToggle" type="checkbox" data-toggle="toggle"
-                                           data-on="Yes +1" data-off="No"
+                                    <input id="anemiaToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
+                                           data-onstyle="danger">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-lg-5">
+                                    <h5>Genetic Factors</h5>
+                                    <h6>
+                                        <small>CYP 2C9 single-nucleotide polymorphisms</small>
+                                    </h6>
+                                </label>
+                                <div class="col-lg-7">
+                                    <input id="geneticFactorsToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
+                                           data-onstyle="danger">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-lg-5">
+                                    <h5>Excessive Fall Risk</h5>
+                                    <h6>
+                                        <small>&nbsp;</small>
+                                    </h6>
+                                </label>
+                                <div class="col-lg-7">
+                                    <input id="excessiveFallRiskToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
+                                           data-onstyle="danger">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-lg-5">
+                                    <h5>Stroke History</h5>
+                                    <h6>
+                                        <small>&nbsp;</small>
+                                    </h6>
+                                </label>
+                                <div class="col-lg-7">
+                                    <input id="strokeHistoryToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
                                            data-onstyle="danger">
                                 </div>
                             </div>
@@ -180,10 +185,7 @@
 <div class="col-12 mt-4">
     <div class="card box-shadow-0">
         <div id="riskResultCard" class="card-header card-head-inverse bg-success">
-            <div class="d-inline-block">
-                <h4 id="riskResultTitle" class="card-title text-white">LOW RISK</h4>
-                <span id="pointsScore" class="badge badge-light float-right">9 points</span>
-            </div>
+            <h4 id="riskResultTitle" class="card-title text-white">LOW RISK</h4>
         </div>
         <div class="card-content collapse show">
             <div class="card-body">
@@ -196,74 +198,67 @@
 <script>
 
     let risk = 0;
-    let riskThreshold = 3;
-    let hypertensionRisk = 1;
-    let renalDiseaseRisk = 1;
-    let bleedingHistoryRisk = 1;
-    let liverDiseaseRisk = 1;
-    let strokeHistoryRisk = 1;
-    let priorMajorBleedingRisk = 1;
-    let labileInrRisk = 1;
-    let oldAgeRisk = 1;
-    let medicationUsageRisk = 1;
-    let alcoholUseRisk = 1;
+    let riskIncrement = 1;
+    let riskLowerLimit = 2;
+    let riskUpperLimit = 3;
 
-    let lowRiskDescription = "Low Risk (<3 Points)"
-    let intermediateRiskDescription = "Intermediate Risk (3 Points)"
-    let highRiskDescription = "High Risk (>3 Points)";
+    $(function() {
+    $('#hepaticOrRenalDiseaseToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, riskIncrement);
+    });
 
-      $(function() {
+
+    $('#ethanolAbuseToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, riskIncrement);
+    });
+
+
+    $('#malignancyHistoryToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, riskIncrement);
+    });
+
+
+    $('#olderAgeToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, riskIncrement);
+    });
+
+    $('#reducedPlateletCountToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, riskIncrement);
+    });
+
+    $('#rebleedingRiskToggle').change(function() {
+        let checked = $(this).prop('checked');
+        update(checked, riskIncrement);
+    });
 
     $('#hypertensionToggle').change(function() {
         let checked = $(this).prop('checked');
-        update(checked, hypertensionRisk);
+        update(checked, riskIncrement);
     });
 
-
-    $('#renalDiseaseToggle').change(function() {
+    $('#anemiaToggle').change(function() {
         let checked = $(this).prop('checked');
-        update(checked, renalDiseaseRisk);
+        update(checked, riskIncrement);
     });
 
-
-    $('#bleedingHistoryToggle').change(function() {
+    $('#geneticFactorsToggle').change(function() {
         let checked = $(this).prop('checked');
-        update(checked, bleedingHistoryRisk);
+        update(checked, riskIncrement);
     });
 
-    $('#liverDiseaseToggle').change(function() {
+    $('#excessiveFallRiskToggle').change(function() {
         let checked = $(this).prop('checked');
-        update(checked, liverDiseaseRisk);
+        update(checked, riskIncrement);
     });
 
     $('#strokeHistoryToggle').change(function() {
         let checked = $(this).prop('checked');
-        update(checked, strokeHistoryRisk);
-    });
-
-    $('#priorMajorBleedingToggle').change(function() {
-        let checked = $(this).prop('checked');
-        update(checked, priorMajorBleedingRisk);
-    });
-
-    $('#labileInrToggle').change(function() {
-        let checked = $(this).prop('checked');
-        update(checked, labileInrRisk);
-    });
-
-    $('#ageToggle').change(function() {
-        let checked = $(this).prop('checked');
-        update(checked, oldAgeRisk);
-    });
-
-        $('#ageToggle').change(function() {
-        let checked = $(this).prop('checked');
-        update(checked, oldAgeRisk);
-    });
-
-        $('#alcoholUseToggle').change(function() {
-        let checked = $(this).prop('checked');
-        update(checked, alcoholUseRisk);
+        update(checked, riskIncrement);
     });
 
     function update(checked, value) {
@@ -284,19 +279,18 @@
     }
 
     function updateLabel() {
-        if (risk < riskThreshold) {
+        if (risk < riskLowerLimit) {
             setLowRiskLabel();
-        } else if (risk === riskThreshold) {
-            setIntermediateRiskLabel()
-         } else if (risk > riskThreshold) {
+        } else if (risk > riskUpperLimit) {
             setHighRiskLabel();
+         } else {
+            setIntermediateRiskLabel();
          }
     }
 
     function setLowRiskLabel() {
         $('#riskResultCard').attr("class","card-header card-head-inverse bg-success");
         $('#riskResultTitle').text("LOW RISK");
-        $('#pointsScore').text(risk);
          $('#riskResultDescription').text(lowRiskDescription);
     }
 
@@ -312,7 +306,6 @@
         $('#riskResultDescription').text(highRiskDescription);
     }
 });
-
 </script>
 
 {% endblock %}
