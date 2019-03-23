@@ -96,7 +96,16 @@ haematocrit (&lt;40% in men and &lt;36% in women) or history of anaemia</small>
 <div class="col-12 mt-4">
     <div class="card box-shadow-0">
         <div id="riskResultCard" class="card-header card-head-inverse bg-success">
-            <h4 id="riskResultTitle" class="card-title text-white">LOW RISK</h4>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <h4 id="riskResultTitle" class="card-title text-white">LOW RISK</h4>
+                    </div>
+                    <div class="col-sm"></div>
+                    <div class="col-sm text-right">
+                        <h4 class="card-title text-white"><span id="riskValueLabel">0</span> points</h4></div>
+                </div>
+            </div>
         </div>
         <div class="card-content collapse show">
             <div class="card-body">
@@ -173,6 +182,7 @@ haematocrit (&lt;40% in men and &lt;36% in women) or history of anaemia</small>
          } else if (risk > riskThreshold) {
             setHighRiskLabel();
          }
+         $('#riskValueLabel').text(risk);
     }
 
     function setLowRiskLabel() {

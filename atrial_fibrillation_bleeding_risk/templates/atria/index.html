@@ -20,7 +20,8 @@
                                     </h6>
                                 </label>
                                 <div class="col-lg-7">
-                                    <input id="anemiaToggle" type="checkbox" data-toggle="toggle" data-on="Yes +3" data-off="No"
+                                    <input id="anemiaToggle" type="checkbox" data-toggle="toggle" data-on="Yes +3"
+                                           data-off="No"
                                            data-onstyle="danger">
                                 </div>
                             </div>
@@ -34,7 +35,8 @@
                                     </h5>
                                 </label>
                                 <div class="col-lg-7">
-                                    <input id="renalDiseaseToggle" type="checkbox" data-toggle="toggle" data-on="Yes +3" data-off="No"
+                                    <input id="renalDiseaseToggle" type="checkbox" data-toggle="toggle" data-on="Yes +3"
+                                           data-off="No"
                                            data-onstyle="danger">
                                 </div>
                             </div>
@@ -48,7 +50,8 @@
                                     </h6>
                                 </label>
                                 <div class="col-lg-7">
-                                    <input id="ageToggle" type="checkbox" data-toggle="toggle" data-on="Yes +2" data-off="No"
+                                    <input id="ageToggle" type="checkbox" data-toggle="toggle" data-on="Yes +2"
+                                           data-off="No"
                                            data-onstyle="danger">
                                 </div>
                             </div>
@@ -62,7 +65,8 @@
                                     </h6>
                                 </label>
                                 <div class="col-lg-7">
-                                    <input id="priorHemorageToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
+                                    <input id="priorHemorageToggle" type="checkbox" data-toggle="toggle"
+                                           data-on="Yes +1" data-off="No"
                                            data-onstyle="danger">
                                 </div>
                             </div>
@@ -77,7 +81,8 @@
                                     </h6>
                                 </label>
                                 <div class="col-lg-7">
-                                    <input id="hypertensionHistoryToggle" type="checkbox" data-toggle="toggle" data-on="Yes +1" data-off="No"
+                                    <input id="hypertensionHistoryToggle" type="checkbox" data-toggle="toggle"
+                                           data-on="Yes +1" data-off="No"
                                            data-onstyle="danger">
                                 </div>
                             </div>
@@ -100,11 +105,21 @@
 <div class="col-12 mt-4">
     <div class="card box-shadow-0">
         <div id="riskResultCard" class="card-header card-head-inverse bg-success">
-            <h4 id="riskResultTitle" class="card-title text-white">LOW RISK</h4>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <h4 id="riskResultTitle" class="card-title text-white">LOW RISK</h4>
+                    </div>
+                    <div class="col-sm"></div>
+                    <div class="col-sm text-right">
+                        <h4 class="card-title text-white"><span id="riskValueLabel">0</span> points</h4></div>
+                </div>
+            </div>
         </div>
         <div class="card-content collapse show">
             <div class="card-body">
-                <p id="riskResultDescription" class="card-text">Low Risk (<4 Points), 0.76% Annual Risk of Hemorrhage.</p>
+                <p id="riskResultDescription" class="card-text">Low Risk (<4 Points), 0.76% Annual Risk of
+                    Hemorrhage.</p>
             </div>
         </div>
     </div>
@@ -177,6 +192,7 @@ $(function() {
          } else if (risk > riskThreshold) {
             setHighRiskLabel();
          }
+         $('#riskValueLabel').text(risk);
     }
 
     function setLowRiskLabel() {
